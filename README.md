@@ -8,7 +8,7 @@ Video pauses on the car screen whenever the car is moving (audio keeps playing).
 Every push to `main` builds a new APK on GitHub Actions. Get it from **Releases → latest → CarBrowser.apk**.
 Builds are signed with the same key, so new versions install over old ones.
 
-## Car screen (Helium-style)
+## Car screen
 
 - Slim dark toolbar: back, forward, reload, address pill (lock + domain + page title), shields counter, tab counter, home.
 - Optional tab strip, accent loading line, calm start page with clock, search and bookmark tiles.
