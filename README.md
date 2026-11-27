@@ -33,6 +33,33 @@ site data wiped on disconnect.
 
 ## Android Auto setup
 
-1. Android Auto settings → tap **Version** 10 times → developer mode.
-2. ⋮ → **Developer settings** → enable **Unknown sources**.
+Android Auto hides navigation-type apps unless they were installed from Google Play, even with Unknown sources on. So Car Browser has to be installed in a way that marks it as coming from Play. Tapping the APK isn't enough.
+
+### Needed
+
+- [Shizuku](https://github.com/RikkaApps/Shizuku) ([Play Store](https://play.google.com/store/apps/details?id=moe.shizuku.privileged.api)) gives approved apps adb-level access, without root or a PC.
+- [UnknownAuto](https://github.com/GitMag/UnknownAuto) uses Shizuku to install an APK as if it came from Play.
+- A Wi-Fi network for a few minutes (no internet needed). Shizuku uses Wireless debugging, which only works while the phone is on Wi-Fi.
+
+### One-time setup
+
+1. Android Auto settings → tap **Version** 10 times → ⋮ → **Developer settings** → enable **Unknown sources**.
+2. Phone Settings → About phone → Software information → tap **Build number** 7 times.
+3. On Wi-Fi, turn on **Developer options → Wireless debugging**. In Shizuku, start pairing, then enter the code from **Pair device with pairing code**.
+4. Tap **Start** in Shizuku. This step needs repeating after every reboot.
+
+### Install / update
+
+1. Download `CarBrowser.apk` from the [latest release](../../releases/latest).
+2. In UnknownAuto: **Load APK…** → pick the APK → **Install**. Allow Shizuku access, then confirm the install.
 3. Force-stop Android Auto, reconnect, and tick Car Browser in **Customise launcher**.
+
+Install every update this way. Afterwards you can turn off Wireless debugging. Car Browser keeps working.
+
+**With a PC instead:** `adb install -i com.android.vending CarBrowser.apk`
+
+## Credits
+
+- [Shizuku](https://github.com/RikkaApps/Shizuku) by RikkaApps
+- [UnknownAuto](https://github.com/GitMag/UnknownAuto) by GitMag
+- Filter lists downloaded at runtime: [EasyList / EasyPrivacy](https://easylist.to), [uBlock Origin filters](https://github.com/uBlockOrigin/uAssets), [Peter Lowe's list](https://pgl.yoyo.org/adservers/), Fanboy's cookie lists
